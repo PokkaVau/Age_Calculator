@@ -3,7 +3,7 @@
 A sleek, modern age calculator that tells you exactly how old you are in years, months, and days - with some fun extras!
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/34a1c519-67c4-4e6f-a7c6-2dd43d90c3e1" alt="Age Calculator Screenshot" width="600">
+  <img src="images/screenshot.png" alt="Age Calculator Screenshot" width="600">
 </div>
 
 ## ✨ Features
