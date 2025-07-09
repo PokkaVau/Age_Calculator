@@ -147,9 +147,7 @@ document.head.insertAdjacentHTML(
     </style>
 `
 );
-// Previous JavaScript code remains the same
 
-// Add this at the end of the file
 document.addEventListener("DOMContentLoaded", function () {
   // Set current year in copyright
   document.getElementById("current-year").textContent =
