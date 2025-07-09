@@ -1,0 +1,386 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --dark-color: #1a1a2e;
+  --light-color: #f8f9fa;
+  --success-color: #4cc9f0;
+  --error-color: #f72585;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: var(--light-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.calculator-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.calculator-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  background: rgba(67, 97, 238, 0.2);
+}
+
+.calculator-header h1 {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #4cc9f0, #4895ef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.calculator-header p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.calculator-body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--light-color);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.btn-gradient {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-gradient:hover::before {
+  opacity: 1;
+}
+
+.btn-gradient:active {
+  transform: scale(0.98);
+}
+
+.result-container {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.result-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+.result-placeholder svg {
+  opacity: 0.6;
+}
+
+.age-result {
+  font-family: var(--font-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.age-highlight {
+  font-weight: 700;
+  color: var(--success-color);
+}
+
+.age-details {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .calculator-container {
+    border-radius: 15px;
+  }
+
+  .calculator-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .calculator-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .calculator-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  input[type="date"],
+  .btn-gradient {
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .calculator-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .calculator-header p {
+    font-size: 0.8rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+  }
+
+  .result-container {
+    padding: 1rem;
+  }
+
+  .age-result {
+    font-size: 1.1rem;
+  }
+
+  .age-details {
+    font-size: 0.85rem;
+  }
+}
+/* Previous styles remain the same until the footer section */
+
+.calculator-footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-link {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+}
+
+.social-link .tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.social-link .tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent;
+}
+
+.social-link:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -120%);
+}
+
+/* Social media specific colors and effects */
+.facebook {
+  background: linear-gradient(45deg, #3b5998, #4267b2);
+}
+
+.facebook:hover {
+  background: linear-gradient(45deg, #4267b2, #3b5998);
+  box-shadow: 0 6px 12px rgba(59, 89, 152, 0.3);
+}
+
+.github {
+  background: linear-gradient(45deg, #333, #6e5494);
+}
+
+.github:hover {
+  background: linear-gradient(45deg, #6e5494, #333);
+  box-shadow: 0 6px 12px rgba(51, 51, 51, 0.3);
+}
+
+.linkedin {
+  background: linear-gradient(45deg, #0077b5, #00a0dc);
+}
+
+.linkedin:hover {
+  background: linear-gradient(45deg, #00a0dc, #0077b5);
+  box-shadow: 0 6px 12px rgba(0, 119, 181, 0.3);
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+
+/* Animation for social icons */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.social-link {
+  animation: float 4s ease-in-out infinite;
+}
+
+.social-link:nth-child(1) {
+  animation-delay: 0s;
+}
+.social-link:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.social-link:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 600px) {
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .copyright {
+    font-size: 0.7rem;
+  }
+}
