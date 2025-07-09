@@ -241,8 +241,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 0.85rem;
   }
 }
-/* Previous styles remain the same until the footer section */
-
 .calculator-footer {
   padding: 1.5rem 2rem;
   text-align: center;
