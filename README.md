@@ -1,4 +1,4 @@
-# 🎂 Age Calculator Web App
+# 🎂 Age Calculator
 
 A sleek, modern age calculator that tells you exactly how old you are in years, months, and days - with some fun extras!
 
@@ -24,3 +24,5 @@ A sleek, modern age calculator that tells you exactly how old you are in years, 
 - **Fonts**: Google Fonts (Poppins, Montserrat)
 - **Icons**: Font Awesome
 - **Animations**: CSS Keyframes
+## 🌐 Live Demo
+Try it now - https://pokkavau.github.io/Age_Calculator/
